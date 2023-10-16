@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Basic CSS</title>
+        <style>
+            body{
+                background-color: cornflowerblue;
+                color: green;
+            }
+            div{
+                color:black;
+                background-color: orange;
+                font-family: sans-serif;
+                font-size: 24pt;
+                font-weight: bold;
+                text-decoration: underline green wavy;
+            }
+            span{
+                color: gold;
+            }
+            img{
+                float: left;
+                padding-right: 20px;
+            }
+        </style>
+        <script>
+            function initialize(){
+                halloweenText = document.getElementById("colordiv")
+                fore = "black";
+                back = "orange";
+                textwidth = 100;
+                numberOutput = document.getElementById("numout");
+                rndNum = 0;
+            }
+            function toggleColors(){
+                var tmp = fore;
+                fore = back;
+                back = tmp;
+                display()
+            }
+            function display(){
+                halloweenText.style.color = fore;
+                halloweenText.style.backgroundColor = back;
+                halloweenText.style.width = textwidth + "%";
+                numberOutput.innerHTML = rndNum;
+            }
+
+
+            function changeWidth(w){
+                textwidth=w;
+                display
+            }
+            function getRandomInteger(lower, upper){
+                var multiplier = upper - (lower -1);
+                var rnd = parseInt(Math.random()*multiplier) + lower
+                return rnd;
+            }
+            function changeNumber(){
+                rndNum = getRandomInteger(1,10);
+                display();
+            }
+        </script>
+    </head>
+   
+    <body onload="initialize()">
+        <!--part 1-->
+        This is the text on  my basic CSS page.
+        <div>
+            This is the text in my <span>span</span> div.
+        </div>
+        <!--part 2-->
+        <div>
+            <img src="doctor who.jpg"/>
+            <span></span>
+        </div>
+
+
+        <hr/>
+        <h1>Old Doctors</h1>
+        <img src="images/jon pertwee.jpg">
+        <img src="images/tom baker.jpg">
+        <img src="images/matt smith.jpg">
+
+
+        <!--PART 3-->
+        <div id="colordiv">
+            click the button again to switch me from black to orange
+        </div>
+
+
+        <p>
+            <button onclick="toggleColors()">Toggle Colors</button>
+            <button onclick="changeWidth(25)">25% Width</button>
+            <button onclick="changeWidth(50)">50% Width</button>
+            <button onclick="changeWidth(75)">75% Width</button>
+            <button onclick="changeWidth(100)">100% Width</button>
+
+
+        </p>
+
+        <div id = "textdiv">
+            I am a wonderful example on how fonts work!
+        </div>
+
+        <p id = "numout"></p>
+        <button onclick="changeNumber()">Change the number</button>
+
+        <h1>this is my home page</h1>
+        <a href="destination.html">Link to destination page</a>
+    </body>
+</html>
